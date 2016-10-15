@@ -5,18 +5,9 @@ use Longman\TelegramBot\Entities\ReplyKeyboardMarkup;
 
 class Helper
 {
-    public static function config()
+    public static function work($api_key, $bot_name)
     {
-        return [
-            'api_key' => '234795588:AAFn5KSZrFsbI5zV2yVRrv3BBfra9-E-C80',
-            'bot_name' => 'EventsReminderBot',
-        ];
-    }
-
-    public static function work()
-    {
-        $config = self::config();
-        new Longman\TelegramBot\Telegram($config['api_key'], $config['bot_name']);
+        new Longman\TelegramBot\Telegram($api_key, $bot_name);
 
         $input = new Message;
 
