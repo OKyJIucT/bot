@@ -7,7 +7,9 @@ class Helper
 {
     public static function work($api_key, $bot_name)
     {
-        new Longman\TelegramBot\Telegram($api_key, $bot_name);
+        $telegram = new Longman\TelegramBot\Telegram($api_key, $bot_name);
+
+        $handle = $telegram->handle();
 
         $input = new Message;
 
@@ -24,15 +26,15 @@ class Helper
         $keyboard[] = [' ', '0', ' ', '/'];
 
         $keyboards[] = $keyboard;
-
-        $data['reply_markup'] = new ReplyKeyboardMarkup(
-            [
-                'keyboard' => $keyboards[0],
-                'resize_keyboard' => true,
-                'one_time_keyboard' => false,
-                'selective' => false
-            ]
-        );
+//
+//        $data['reply_markup'] = new ReplyKeyboardMarkup(
+//            [
+//                'keyboard' => $keyboards[0],
+//                'resize_keyboard' => true,
+//                'one_time_keyboard' => false,
+//                'selective' => false
+//            ]
+//        );
 
         return Request::sendMessage($data);
     }
